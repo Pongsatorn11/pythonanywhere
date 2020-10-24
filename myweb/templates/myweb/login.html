@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Login</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="icon" type="image/png" href="http://www.4androidapk.com/data/programs/images/mp3-player_28859.png"
     {% load static %}
 </head>
 <body>
-    <body>
-    <style>
+ <style>
+
         ul {
           list-style-type: none;
           margin: 0;
           padding: 0;
           overflow: hidden;
-          background-color: #6699ff;
+          background-color: black;
         }
 
         li {
@@ -60,38 +61,76 @@
         .dropdown:hover .dropdown-content {
           display: block;
         }
-        </style>
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("https://usercontent.2th.me/a/i/6958zjba/2th.me_3211764.jpg");
+
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+</style>
+    </style>
         </heade>
         <body>
 
-        <ul>
+ <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/logins">Login</a></li>
-          <li><a href="/logout">Logout</a></li>
           <li><a href="/signup">Register</a></li>
-          <li><a href="/admin">Admin</a></li>
+          <li><a href="/">Login</a></li>
+          <li><a href="/logout">Logout</a></li>
 
 
 
-         <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Song Type</a>
-            <div class="dropdown-content">
-              <a href="#">เพลงแนะนำ</a>
-              <a href="#">เพลงญี่ปุ่น</a>
-              <a href="#">เพลงเอาฮา</a>
-              <a href="#">เพลงสากล</a>
-
-            </div>
-          </li>
-        </ul>
-
-        <h3>Welcome</h3>
-
- <form method="post">
+</ul>
+<div class="bg-image"></div>
+<div class="bg-text">
+   <h>Login</h>
+  <form method="post">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Login">
-</form>
+</form
+</div>
+
+
         </div>
       </div>
     </form>

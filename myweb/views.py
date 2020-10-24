@@ -5,9 +5,18 @@ from django.contrib.auth import logout as logout_user
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
+from .form import  addLink , addSong
+from .models import Link , Song, Singer
+
 # Create your views here.
 def index(req):
 	return render(req, 'myweb/index.html')
+
+def showsongs(req):
+	return render(req, 'myweb/showsongs.html')
+
+def addsongs(req):
+	return render(req, 'myweb/addsongs.html')
 
 def signup(request):
     context = {}
@@ -22,4 +31,42 @@ def signup(request):
 
 def logout(req):
     logout_user(req)
-    return redirect('index')
+    return redirect('login')
+
+def Rcmsongs(req):
+	return render(req, 'myweb/Rcmsongs.html')
+
+def jpsongs(req):
+	return render(req, 'myweb/jpsongs.html')
+
+def Intersongs(req):
+	return render(req, 'myweb/Intersongs.html')
+
+#########	#########	#########	#########	#########	#########
+
+def showSong(req):
+    song = Song.objects.all()
+    return render(req ,'myweb/showsongs.html' ,{'song':song})
+
+
+def addLink(req):
+    if req.method == "POST":
+        form = addLink(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = addLink()
+        context = {'form':form}
+        return render(req, 'myweb/addsongs.html',context)
+
+def addsong(req):
+    if req.method == "POST":
+        form = addSong(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = addSong()
+        context = {'form':form}
+        return render(req, 'myweb/addsongs.html',context)
