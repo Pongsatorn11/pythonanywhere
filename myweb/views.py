@@ -44,7 +44,12 @@ def Intersongs(req):
 
 #########	#########	#########	#########	#########	#########
 
-def showSong(req):
+def showsongs(req):
+    song = Song.objects.all()
+    return render(req ,'myweb/showsongs.html' ,{'song':song})
+
+
+def showsongs(req):
     song = Song.objects.all()
     return render(req ,'myweb/showsongs.html' ,{'song':song})
 
@@ -60,7 +65,7 @@ def addLink(req):
         context = {'form':form}
         return render(req, 'myweb/addsongs.html',context)
 
-def addsong(req):
+def addsongs(req):
     if req.method == "POST":
         form = addSong(req.POST)
         if form.is_valid():
